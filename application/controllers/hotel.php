@@ -97,7 +97,7 @@ public function edit_data($hotel_id) {
         $this->load->view('hotel_add', $data);
     }
         public function editp() {
-            $config['upload_path'] = 'upload/';
+           $config['upload_path'] = 'upload/';
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size'] = 800;
         $config['max_width'] = 2024;

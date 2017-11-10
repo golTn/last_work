@@ -7,18 +7,19 @@
       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
                <script>
             $("document").ready(function () {
-                //$("#state").hide();
+               // $("#state").hide();
                 $("#country_id").change(function () {
                     $("#state_id").show();
                     var id = $(this).val();
+                   // alert(id);
                     $("#city_id").html('');
                     $.ajax({
                         url: "<?php echo site_url("hotel/drop_state") ?>",
                         type: "POST",
                         data: {country_id: id},
                         success: function (result) {
-                            //alert(result);
-                            $("#state_id").html(result);
+                    //alert(result);
+                        $("#state_id").html(result);
                         }
 
                     });
@@ -118,11 +119,11 @@
                                             foreach ($country_list as $country) {
                                                 if ($country->country_id == $update_data['country_id']) {
                                                     ?>
-                                                    <option selected value="<?php echo $update_data['country_id'] ?>"><?php echo $country->country_name ?></option>
+                                                    <option selected value="<?php echo $country->country_id ?>"><?php echo $country->country_name ?></option>
                                                     <?php
                                                 } else {
                                                     ?>
-                                                    <option value="<?php echo $update_data['country_id'] ?>"><?php echo $country->country_name ?></option>
+                                                    <option value="<?php echo $country->country_id ?>"><?php echo $country->country_name ?></option>
                                                     <?php
                                                 }
                                             }
@@ -140,11 +141,7 @@
                                                <!-- <option selected value="<?//php echo $state->state_id ?>"> <?php //echo $state->state_name ?></option>-->
                                              <option value="<?php echo $state->state_id; ?>"selected="selected"><?php echo $state->state_name; ?></option>
                                     <?php
-                                } else {
-                                    ?>
-                                    <option value="<?php echo $state->state_id; ?>"><?php echo $state->state_name; ?></option>
-                                    <?php
-                                }
+                                } 
                             }
                             ?>
                                         </select></div>

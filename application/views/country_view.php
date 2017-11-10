@@ -51,11 +51,12 @@
                 <tbody>
                     <td><?PHP echo $country->country_id ;?></td>
 		<td><?PHP echo $country->country_name ;?></td>
-		<td><a href="<?php echo site_url("country/del/$country->country_id");?>" 
-		onclick="return confirm('you want to delete...........?')">DELETE</a>||
-			<a href="<?php echo site_url("country/edit_data/$country->country_id");?>"
-		onclick="return confirm('you want to edit...........')">EDIT</a>
+		<td><a href="<?php echo site_url("country/edit_data/$country->country_id");?>"
+		onclick="return confirm('you want to edit...........')" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-pencil"></span>EDIT</a>
 		
+                    <a href="<?php echo site_url("country/del/$country->country_id");?>" 
+		onclick="return confirm('you want to delete...........?')" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-remove"></span>DELETE</a>
+			
 		</td>
 		
                 </tbody>

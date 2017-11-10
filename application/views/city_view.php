@@ -60,11 +60,12 @@
                                     <td><?PHP echo $city->country_name; ?></td>
                                     <td><?PHP echo $city->state_name; ?></td>
                                     <td><?PHP echo $city->city_name; ?></td>
-                                    <td><a href="<?php echo site_url("city/del/$city->city_id"); ?>" 
-                                           onclick="return confirm('you want to delete...........?')">DELETE</a>||
-                                        <a href="<?php echo site_url("city/edit_data/$city->city_id"); ?>"
-                                           onclick="return confirm('you want to edit...........')">EDIT</a>
+                                    <td>  <a href="<?php echo site_url("city/edit_data/$city->city_id"); ?>"
+                                           onclick="return confirm('you want to edit...........')" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>EDIT</a>
 
+                                        <a href="<?php echo site_url("city/del/$city->city_id"); ?>" 
+                                           onclick="return confirm('you want to delete...........?')" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span>DELETE</a>
+                                      
                                     </td>
 
                                     </tbody>

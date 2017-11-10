@@ -35,7 +35,7 @@
                         </div>
                         <div class="box-body">
                             <div class="form-group">    
-                                <p align="right"><a href="<?php echo site_url("state/add_state") ?>" class="btn btn-primary" role="button" <span class="glyphicon glyphicon-plus"></span>>Add Records</a></p>
+                                <p align="right"><a href="<?php echo site_url("state/add_state") ?>" class="btn btn-primary" role="button" ><span class="glyphicon glyphicon-plus"></span>Add Records</a></p>
                             </div>
 
                             <table id="example1" class="table table-bordered table-striped">
@@ -55,10 +55,12 @@
                                     <td><?PHP echo $state->state_id; ?></td>
                                     <td><?PHP echo $state->country_name; ?></td>
                                     <td><?PHP echo $state->state_name; ?></td>
-                                    <td><a href="<?php echo site_url("state/del/$state->state_id"); ?>" 
-                                           onclick="return confirm('you want to delete...........?')">DELETE</a>||
-                                        <a href="<?php echo site_url("state/edit_data/$state->state_id"); ?>"
-                                           onclick="return confirm('you want to edit...........')">EDIT</a>
+                                    
+                                    <td>  <a href="<?php echo site_url("state/edit_data/$state->state_id"); ?>"
+                                           onclick="return confirm('you want to edit...........')" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-pencil"></span>EDIT</a>
+                                        <a href="<?php echo site_url("state/del/$state->state_id"); ?>" 
+                                           onclick="return confirm('you want to delete...........?')" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-remove"></span>DELETE</a>
+                                      
                                     </td>
                                      
                                     </tbody>

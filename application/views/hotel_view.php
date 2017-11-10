@@ -73,9 +73,9 @@ foreach ($hotel_list as $hotel) {
                             <td><?php echo $hotel->city_id ?></td>
 
 
-                            <td>
-                                <a href="<?php echo site_url("hotel/delete/$hotel->hotel_id") ?>">DELETE</a>
-                                <a href="<?php echo site_url("hotel/edit_data/$hotel->hotel_id") ?>">EDIT</a></td>
+                            <td>  <a href="<?php echo site_url("hotel/edit_data/$hotel->hotel_id") ?>" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-pencil"></span>EDIT</a>
+                                <a href="<?php echo site_url("hotel/delete/$hotel->hotel_id") ?>" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-remove"></span>DELETE</a>
+                              </td>
                         </tr>
                                     </tbody>
                                     <?php
@@ -85,11 +85,7 @@ foreach ($hotel_list as $hotel) {
 
                         </div>
                         <!-- /.box-body -->
-                        <div class="box-footer">
-                            Footer
-                        </div>
-                        <!-- /.box-footer-->
-                    </div>
+                                            </div>
                     <!-- /.box -->
 
                 </section>
