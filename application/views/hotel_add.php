@@ -104,9 +104,9 @@
                 <label>star</label>
                 <input class="form-control" type="text" name="star" value="<?php echo $update_data['star'] ?>"/>
             </div>
-            <div class="form-control">
+            <div class="form-group">
                 <label>image</label>
-                    <input type="file" name="image" value="<?php echo $update_data['image'] ?>"/>
+                    <input class="form-control" type="file" name="image" value="<?php echo $update_data['image'] ?>"/>
             </div>
             
             

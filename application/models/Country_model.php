@@ -1,10 +1,10 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Country_model extends CI_Model {
 
-	
-	 public function insert($country_data) {
+    public function insert($country_data) {
         $this->db->insert('country_master', $country_data);
     }
 

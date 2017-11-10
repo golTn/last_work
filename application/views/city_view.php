@@ -50,11 +50,13 @@
                                     </tr>           
                                 </thead>
                                 <?php
+                                $cnt = 1;
                                 foreach ($city_list as $city) {
+                                    
                                     ?>
 
                                     <tbody>
-                                    <td><?PHP echo $city->city_id; ?></td>
+                                    <td><?PHP echo $cnt++; ?></td>
                                     <td><?PHP echo $city->country_name; ?></td>
                                     <td><?PHP echo $city->state_name; ?></td>
                                     <td><?PHP echo $city->city_name; ?></td>

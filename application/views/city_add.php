@@ -7,7 +7,7 @@
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
         <script>
             $("document").ready(function () {
-                $("#state").hide();
+               // $("#state").hide();
                 $("#country_id").change(function () {
                     $("#state_id").show();
                     var id = $(this).val();
@@ -17,8 +17,8 @@
                         type: "POST",
                         data: {country_id: id},
                         success: function (result) {
-                            alert(result);
-                            //  $("#state_id").html(result);
+                            //alert(result);
+                             $("#state_id").html(result);
                         }
 
                     });
@@ -120,7 +120,7 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Select Country_name</label>
-                                        <select name="country_id" class="form-control">
+                                        <select name="country_id" id="country_id" class="form-control">
                                             <option >--select--</option>
                                             <?php
                                             foreach ($country_list as $country) {

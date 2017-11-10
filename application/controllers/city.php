@@ -51,12 +51,12 @@ class city extends CI_Controller {
         $data['state_list'] = $this->state_model->getstatelist();
         $data['city_list'] = $this->city_model->getcitylist();
 
-        $this->load->view('city_view', $data);
+        $this->load->view('city_add', $data);
     }
 
     public function editp() {
         $this->city_model->update_data($_POST['city_id'], $_POST['country_id'], $_POST['state_id'], $_POST['city_name']);
-        redirect("city/index");
+        redirect("city/view_city");
     }
 
     public function update_data($cityid) {

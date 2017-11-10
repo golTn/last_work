@@ -74,7 +74,7 @@ foreach ($hotel_list as $hotel) {
 
 
                             <td>
-                                <a href="<?php echo site_url("hotel/del/$hotel->hotel_id") ?>">DELETE</a>
+                                <a href="<?php echo site_url("hotel/delete/$hotel->hotel_id") ?>">DELETE</a>
                                 <a href="<?php echo site_url("hotel/edit_data/$hotel->hotel_id") ?>">EDIT</a></td>
                         </tr>
                                     </tbody>

@@ -40,12 +40,12 @@ class State extends CI_Controller {
         $data['update_data'] = $this->state_model->edit_data($state_id);
         $data['country_list'] = $this->country_model->getcountrylist();
         $data['state_list'] = $this->state_model->getstatelist();
-        $this->load->view('state_view', $data);
+        $this->load->view('state_add', $data);
     }
 
     public function editp() {
         $this->state_model->update_data($_POST['state_id'], $_POST['country_id'], $_POST['state_name']);
-        redirect("state/index");
+        redirect("state/view_state");
     }
 
     public function del($state_id) {

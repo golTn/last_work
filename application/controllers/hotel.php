@@ -83,7 +83,7 @@ class hotel extends CI_Controller {
     }
 public function delete($hotel_id) {
         $this->hotel_model->delete($hotel_id);
-        redirect("hotel/index");
+        redirect("hotel/view_hotel");
     }
 public function edit_data($hotel_id) {
     
@@ -94,7 +94,7 @@ public function edit_data($hotel_id) {
         
         $data['state_list'] = $this->state_model->getstatelist();
         $data['city_list'] = $this->city_model->getcitylist();
-        $this->load->view('hotel_view', $data);
+        $this->load->view('hotel_add', $data);
     }
         public function editp() {
             $config['upload_path'] = 'upload/';
@@ -110,7 +110,7 @@ public function edit_data($hotel_id) {
             {
            
         $this->hotel_model->update_data($_POST['hotel_id'], $_POST['name'], $_POST['email'], $_POST['mobile'],$_POST['star'],$_FILES['image']['name'],$_POST['country_id'],$_POST['state_id'], $_POST['city_id']);
-         redirect("hotel/index");
+         redirect("hotel/view_hotel");
     }
    
         }
