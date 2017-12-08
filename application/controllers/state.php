@@ -1,26 +1,34 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class State extends CI_Controller {
 
-	 public function __construct() {
+    public function __construct() {
         parent::__construct();
         $this->load->model('country_model');
         $this->load->model('state_model');
+      //   $this->load->library('excel');//load PHPExcel library 
+	
     }
-  public function view_state()
-    {
-       $data['country_list'] = $this->country_model->getcountrylist();
+
+    public function view_state() {
+        $data['country_list'] = $this->country_model->getcountrylist();
         $data['state_list'] = $this->state_model->getstatelist();
-         $this->load->view('state_view',$data);
+        $this->load->view('state_view', $data);
     }
-    
-              public function add_state()
-    {
-                   $data['country_list'] = $this->country_model->getcountrylist();
+
+    public function add_state() {
+        $data['country_list'] = $this->country_model->getcountrylist();
         $data['state_list'] = $this->state_model->getstatelist();
-         $this->load->view('state_add',$data);
+        $this->load->view('state_add', $data);
     }
+
+    public function import_file()
+    {
+        $this->load->view('import_file');
+    }
+      	 
     public function index() {
         $data['country_list'] = $this->country_model->getcountrylist();
         $data['state_list'] = $this->state_model->getstatelist();
@@ -30,7 +38,8 @@ class State extends CI_Controller {
     public function addp() {
         $state_data = array(
             'country_id' => $_POST['country_id'],
-            'state_name' => $_POST['state_name']
+            'state_name' => $_POST['state_name'],
+            'status' => 1
         );
         $this->state_model->insert($state_data);
         redirect("state/index");
@@ -64,6 +73,34 @@ class State extends CI_Controller {
         $this->load->view('state_view', $data);
     }
 
-	
-	
-}
+  public function update_status_active($state_id){
+$this->load->model('country_model');
+$this->load->model('state_model');
+$status=$this->input->get('status');
+$this->state_model->update_active($state_id,$status);
+redirect('state/index');
+    
+} 
+public function update_status_deactive($state_id){
+$this->load->model('country_model');
+$this->load->model('state_model');
+$status=$this->input->get('status');
+$this->state_model->update_deactive($state_id,$status);
+redirect('state/index');
+    
+} 
+   /* public function update_status($state_id)
+    {
+        if($_POST['select']=="active")
+        {
+            $query= "update state_master set  status=1 where state_id=$state_id ";
+            return $query->row_array();
+        }
+        elseif($_POST['select']=="deactive")
+        {
+            $query= "update state_master set  status=0 where state_id=$state_id ";
+            return $query->row_array();
+        }
+    }*/
+
+}     

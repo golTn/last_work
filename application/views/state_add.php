@@ -4,6 +4,7 @@
         <?php
         include("header_include.php");
         ?>
+      
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">

@@ -4,6 +4,7 @@
         <?php
         include("header_include.php");
         ?>
+
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
@@ -22,7 +23,7 @@
 
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
-              
+
 
                 <section class="content">
 
@@ -31,11 +32,15 @@
                         <div class="box-header with-border">
                             <h3 class="box-title">State_master</h3>
 
-                        
+
                         </div>
                         <div class="box-body">
                             <div class="form-group">    
-                                <p align="right"><a href="<?php echo site_url("state/add_state") ?>" class="btn btn-primary" role="button" ><span class="glyphicon glyphicon-plus"></span>Add Records</a></p>
+                                <p align="right"><a href="<?php echo site_url("state/add_state") ?>" class="btn btn-primary" role="button" ><span class="glyphicon glyphicon-plus"></span>Add Records</a>
+                                    <a href="<?php echo site_url("state/import_file") ?>" class="btn btn-primary" role="button" ><span class="glyphicon glyphicon-import"></span>Import</a>
+                                    <a href="<?php echo site_url("state/export_file") ?>" class="btn btn-primary" role="button" ><span class="glyphicon glyphicon-export"></span>Export</a></p>
+         
+         
                             </div>
 
                             <table id="example1" class="table table-bordered table-striped">
@@ -44,34 +49,47 @@
                                         <td>State_id</td>
                                         <td>country_name</td>
                                         <td>State_name</td>
+                                        <td>Status</td>
                                         <td>Action</td>
                                     </tr>           
                                 </thead>
-                                    <?php
+                                <?php
                                 foreach ($state_list as $state) {
                                     ?>
-                                    
+
                                     <tbody>
                                     <td><?PHP echo $state->state_id; ?></td>
                                     <td><?PHP echo $state->country_name; ?></td>
                                     <td><?PHP echo $state->state_name; ?></td>
-                                    
+                                    <td><?php echo $state->status; ?></td>
                                     <td>  <a href="<?php echo site_url("state/edit_data/$state->state_id"); ?>"
-                                           onclick="return confirm('you want to edit...........')" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-pencil"></span>EDIT</a>
+                                             onclick="return confirm('you want to edit...........')" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-pencil"></span>EDIT</a>
                                         <a href="<?php echo site_url("state/del/$state->state_id"); ?>" 
                                            onclick="return confirm('you want to delete...........?')" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-remove"></span>DELETE</a>
-                                      
+                                           <?php
+                                           if ($state->status=='0' ) {
+                                               ?>
+
+                                            <a href="<?php echo site_url("state/update_status_active/$state->state_id") ?>" class="btn btn-success" role="button">Active</a>
+                                            <?php
+                                        } else
+                                            {
+                                            ?>
+                                            <a href="<?php echo site_url("state/update_status_deactive/$state->state_id") ?>" class="btn btn-danger" role="button">deactive</a>
+                                            <?php
+                                        }
+                                        ?>
                                     </td>
-                                     
+
                                     </tbody>
-                                   <?php
-                                }
-                                ?>
+    <?php
+}
+?>
                             </table>
 
                         </div>
                         <!-- /.box-body -->
-                      
+
                     </div>
                     <!-- /.box -->
 
@@ -79,7 +97,7 @@
                 <!-- /.content -->
             </div>
             <!-- /.content-wrapper -->
-         
+
 
             <!-- Control Sidebar -->
 
@@ -89,9 +107,9 @@
             <div class="control-sidebar-bg"></div>
         </div>
         <!-- ./wrapper -->
-        <?php
-        include("footer_include.php");
-        ?>
+<?php
+include("footer_include.php");
+?>
     </body>
 </html>
 

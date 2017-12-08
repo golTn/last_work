@@ -22,7 +22,7 @@
 
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
-                
+
                 <section class="content">
 
                     <!-- Default box -->
@@ -32,42 +32,42 @@
 
                         </div>
                         <div class="box-body">
-                              <div class="form-group">    
-                                <p align="right"><a href="<?php echo site_url("country/add_country") ?>" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-plus"></span>Add Records</a></p>
-                                </div>
-                            
-                             <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <td>Country_id</td>
-		<td>Country_name</td>
-		<td>Action</td>
-                </tr>           
-                </thead>
-                  <?php
-		foreach($country_list as $country)
-		{
-		?>
-                <tbody>
-                    <td><?PHP echo $country->country_id ;?></td>
-		<td><?PHP echo $country->country_name ;?></td>
-		<td><a href="<?php echo site_url("country/edit_data/$country->country_id");?>"
-		onclick="return confirm('you want to edit...........')" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-pencil"></span>EDIT</a>
-		
-                    <a href="<?php echo site_url("country/del/$country->country_id");?>" 
-		onclick="return confirm('you want to delete...........?')" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-remove"></span>DELETE</a>
-			
-		</td>
-		
-                </tbody>
-                <?php
-                }
-                ?>
-                             </table>
-                          
+                            <div class="form-group">    
+                                <p align="right"><a href="<?php echo site_url("country/add_country") ?>" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-plus"></span>Add records</a> 
+                                    &nbsp; <a href="<?php echo site_url("country/import") ?>" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-import"></span>Imports</a></p>
+                            </div>
+
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <td>Country_id</td>
+                                        <td>Country_name</td>
+                                        <td>Action</td>
+                                    </tr>           
+                                </thead>
+                                <?php
+                                foreach ($country_list as $country) {
+                                    ?>
+                                    <tbody>
+                                    <td><?PHP echo $country->country_id; ?></td>
+                                    <td><?PHP echo $country->country_name; ?></td>
+                                    <td><a href="<?php echo site_url("country/edit_data/$country->country_id"); ?>"
+                                           onclick="return confirm('you want to edit...........')" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-pencil"></span>EDIT</a>
+
+                                        <a href="<?php echo site_url("country/del/$country->country_id"); ?>" 
+                                           onclick="return confirm('you want to delete...........?')" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-remove"></span>DELETE</a>
+
+                                    </td>
+
+                                    </tbody>
+                                    <?php
+                                }
+                                ?>
+                            </table>
+
                         </div>
                         <!-- /.box-body -->
-                      
+
                     </div>
                     <!-- /.box -->
 

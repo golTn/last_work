@@ -5,7 +5,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Country_model extends CI_Model {
 
     public function insert($country_data) {
-        $this->db->insert('country_master', $country_data);
+        $data = array('country_name' => $country_data);
+        $this->db->insert('country_master', $data);
+    }
+
+    public function check_data($country_name) {
+        $query = $this->db->query("select * from country_master where country_name='$country_name'");
+        return $query->row_array();
     }
 
     public function getcountrylist() {

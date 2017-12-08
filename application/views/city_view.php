@@ -23,16 +23,11 @@
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
-
-
                 <section class="content">
-
                     <!-- Default box -->
                     <div class="box">
                         <div class="box-header with-border">
                             <h3 class="box-title">City_master</h3>
-
-
                         </div>
                         <div class="box-body">
                             <div class="form-group">    
