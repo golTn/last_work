@@ -30,13 +30,13 @@
                     <!-- Default box -->
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">State_master</h3>
+                            <h3 class="box-title"><label>State_master</label></h3>
 
                             
                         </div>
                         <div class="box-body">
                             <div class="form-group">    
-                                <p align="right"><a href="<?php echo site_url("state/view_state") ?>" class="btn btn-primary" role="button">View Records</a></p>
+                                <p align="right"><a href="<?php echo site_url("state/view_state") ?>" class="btn btn-primary" role="button"><label>View Records</label></a></p>
                             </div>
 
                             <?php

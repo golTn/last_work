@@ -6,7 +6,7 @@
           <img src="<?php echo base_url() ?>Admin_panel/assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>Krupali Makadiya</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -39,22 +39,7 @@
             <li><a href="<?php echo site_url("city/view_city")?>"><i class="fa fa-circle-o"></i> City_master</a></li>
             <li><a href="<?php echo site_url("hotel/index")?>"><i class="fa fa-circle-o"></i> Hotel_master</a></li>
           </ul>
-        </li>
-        
-   
-   <li class="treeview">
-   <a href="#">
-        <i class="fa fa-pie-chart"></i>
-   <span>try1</span>
-     <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-   </a>
-       
-   <ul class="treeview-menu">
-    <li><a href="<?php echo site_url("insupdate/index")?>"><i class="fa fa-circle-o"></i> try_master</a></li>
-          </ul>
-   </li>
+        </li>   
    </section>
     <!-- /.sidebar -->
      

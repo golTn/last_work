@@ -29,14 +29,11 @@ class country extends CI_Controller {
     }
 
     public function addp() {
-
-        $country_data = $this->country_model->check_data($_POST['country_name']);
-
+        $country_data = $this->country_model->check_data($_POST['country_name'],$_POST['status']);
         if (isset($country_data)) {
             redirect('country/index');
         } else {
-
-            $this->country_model->insert($_POST['country_name']);
+            $this->country_model->insert($_POST['country_name'],$_POST['status']);
         }
     }
 
@@ -61,7 +58,6 @@ class country extends CI_Controller {
             if (isset($country_data['country_id'])) {
                 continue;
             }
-
             try {
                 $this->country_model->insert($country_name);
                 $counter++;
@@ -89,5 +85,17 @@ class country extends CI_Controller {
         $this->country_model->del($country_id);
         redirect("country/view_country");
     }
+public function update_status_active($country_id) {
+        $this->load->model('country_model');
+        $status = $this->input->get('status');
+        $this->country_model->update_active($country_id, $status);
+        redirect('country/index');
+    }
 
+    public function update_status_deactive($country_id) {
+        $this->load->model('country_model');
+        $status = $this->input->get('status');
+        $this->country_model->update_deactive($country_id, $status);
+        redirect('country/index');
+    }
 }

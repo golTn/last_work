@@ -28,21 +28,22 @@
                     <!-- Default box -->
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Country_master</h3>
+                            <h3 class="box-title"><label>Country_master</label></h3>
 
                         </div>
                         <div class="box-body">
                             <div class="form-group">    
-                                <p align="right"><a href="<?php echo site_url("country/add_country") ?>" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-plus"></span>Add records</a> 
-                                    &nbsp; <a href="<?php echo site_url("country/import") ?>" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-import"></span>Imports</a></p>
+                                <p align="right"><a href="<?php echo site_url("country/add_country") ?>" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-plus"></span><label>Add records</label></a> 
+                                    &nbsp; <a href="<?php echo site_url("country/import") ?>" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-import"></span><label>Imports</label></a></p>
                             </div>
 
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <td>Country_id</td>
-                                        <td>Country_name</td>
-                                        <td>Action</td>
+                                        <td><label>Country_id</label></td>
+                                        <td><label>Country_name</label></td>
+                                        <td><label>Status</label></td>
+                                        <td><label>Action<label></td>
                                     </tr>           
                                 </thead>
                                 <?php
@@ -51,11 +52,23 @@
                                     <tbody>
                                     <td><?PHP echo $country->country_id; ?></td>
                                     <td><?PHP echo $country->country_name; ?></td>
-                                    <td><a href="<?php echo site_url("country/edit_data/$country->country_id"); ?>"
-                                           onclick="return confirm('you want to edit...........')" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-pencil"></span>EDIT</a>
+                                    <td><?php
+                                           if ($country->status=='0' ) {
+                                               ?>
 
+                                        <a href="<?php echo site_url("country/update_status_active/$country->country_id") ?>" class="btn btn-success" role="button"><label>Active</label></a>
+                                            <?php
+                                        } else
+                                            {
+                                            ?>
+                                        <a href="<?php echo site_url("country/update_status_deactive/$country->country_id") ?>" class="btn btn-danger" role="button"><label>Deactive</label></a>
+                                            <?php
+                                        }
+                                        ?></td>
+                                    <td><a href="<?php echo site_url("country/edit_data/$country->country_id"); ?>"
+                                           onclick="return confirm('you want to edit...........')" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-pencil"></span></a>
                                         <a href="<?php echo site_url("country/del/$country->country_id"); ?>" 
-                                           onclick="return confirm('you want to delete...........?')" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-remove"></span>DELETE</a>
+                                           onclick="return confirm('you want to delete...........?')" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-remove"></span></a>
 
                                     </td>
 

@@ -36,23 +36,23 @@
                         </div>
                         <div class="box-body">
                             <div class="form-group">    
-                                <p align="right"><a href="<?php echo site_url("hotel/add_hotel") ?>" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-plus"></span>Add Records</a></p>
+                                <p align="right"><a href="<?php echo site_url("hotel/add_hotel") ?>" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-plus"></span></a></p>
                             </div>
 
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                     
-                        <td>id</td>
-                        <td>name</td>
-                        <td>email</td>
-                        <td>mobile</td>
-                        <td>star</td>
-                        <td>image</td>
-                        <td>country</td>
-                        <td>state</td>
-                        <td>city</td>
-                        <td>Action</td>
+                                        <td><label>id</label></td>
+                                        <td><label>name</label></td>
+                                        <td><label>email</label></td>
+                                        <td><label>mobile</label></td>
+                                        <td><label>star</label></td>
+                                        <td><label>image</label></td>
+                                        <td><label>country</label></td>
+                                        <td><label>state</label></td>
+                                        <td><label>city</label></td>
+                                        <td><label>Action</label></td>
                                     </tr>           
                                 </thead>
                               <?php
@@ -73,8 +73,8 @@ foreach ($hotel_list as $hotel) {
                             <td><?php echo $hotel->city_id ?></td>
 
 
-                            <td>  <a href="<?php echo site_url("hotel/edit_data/$hotel->hotel_id") ?>" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-pencil"></span>EDIT</a>
-                                <a href="<?php echo site_url("hotel/delete/$hotel->hotel_id") ?>" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-remove"></span>DELETE</a>
+                            <td>  <a href="<?php echo site_url("hotel/edit_data/$hotel->hotel_id") ?>" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-pencil"></span></a>
+                                <a href="<?php echo site_url("hotel/delete/$hotel->hotel_id") ?>" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-remove"></span></a>
                               </td>
                         </tr>
                                     </tbody>

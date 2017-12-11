@@ -31,17 +31,17 @@
                         </div>
                         <div class="box-body">
                             <div class="form-group">    
-                                <p align="right"><a href="<?php echo site_url("city/add_city") ?>" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-plus"></span> Add Records</a></p>
+                                <p align="right"><a href="<?php echo site_url("city/add_city") ?>" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-plus"></span></a></p>
                             </div>
 
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <td>city_id</td>
-                                        <td>country_name</td>
-                                        <td>state_name</td>
-                                        <td>city_name</td>
-                                        <td>Action</td>
+                                        <td><label>city_id</label></td>
+                                        <td><label>country_name</label></td>
+                                        <td><label>state_name</label></td>
+                                        <td><label>city_name</label></td>
+                                        <td><label>Action</label></td>
                                     </tr>           
                                 </thead>
                                 <?php
@@ -56,11 +56,11 @@
                                     <td><?PHP echo $city->state_name; ?></td>
                                     <td><?PHP echo $city->city_name; ?></td>
                                     <td>  <a href="<?php echo site_url("city/edit_data/$city->city_id"); ?>"
-                                           onclick="return confirm('you want to edit...........')" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>EDIT</a>
+                                           onclick="return confirm('you want to edit...........')" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
 
                                         <a href="<?php echo site_url("city/del/$city->city_id"); ?>" 
-                                           onclick="return confirm('you want to delete...........?')" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span>DELETE</a>
-                                      
+                                           onclick="return confirm('you want to delete...........?')" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
+                                           
                                     </td>
 
                                     </tbody>
