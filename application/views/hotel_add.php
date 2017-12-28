@@ -1,25 +1,26 @@
+
 <!DOCTYPE html>
 <html>
     <head>
         <?php
         include("header_include.php");
         ?>
-      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-               <script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script>
             $("document").ready(function () {
-               // $("#state").hide();
+                // $("#state").hide();
                 $("#country_id").change(function () {
                     $("#state_id").show();
                     var id = $(this).val();
-                   // alert(id);
+                    // alert(id);
                     $("#city_id").html('');
                     $.ajax({
                         url: "<?php echo site_url("hotel/drop_state") ?>",
                         type: "POST",
                         data: {country_id: id},
                         success: function (result) {
-                    //alert(result);
-                        $("#state_id").html(result);
+                            //alert(result);
+                            $("#state_id").html(result);
                         }
 
                     });
@@ -68,49 +69,47 @@
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
-               
+
                 <section class="content">
 
                     <!-- Default box -->
-                    <div class="box">
+                    <div class="box box-info">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Hotel_master</h3>
-
-                            
+                            <h3 class="box-title">Hotel Master</h3>
+                            <a href="<?php echo site_url("hotel/view_hotel") ?>" class="btn btn-xs btn-primary pull-right">
+                                <label class="fa fa-plus label-btn-icon"></label>
+                                &nbsp;<label class="label-btn-fonts">View Records</label>
+                            </a>
                         </div>
                         <div class="box-body">
-                            <div class="form-group">    
-                                <p align="right"><a href="<?php echo site_url("hotel/view_hotel") ?>" class="btn btn-primary" role="button">View Records</a></p>
-                            </div>
-
                             <?php
                             if (isset($update_data)) {
                                 ?>
 
-                               <form name="reg" method="POST" action="<?php echo site_url('hotel/editp') ?>" enctype="multipart/form-data" role="form">
-            <input type="hidden" name="hotel_id" value="<?php echo $update_data['hotel_id'] ?>"/>
-            <div class="form-group">
-                <label>Hotel Name</label>
-                <input class="form-control" type="text" name="name" value="<?php echo $update_data['name'] ?>"/></td>  
-            </div>
-            <div class="form-group">
-                <label>Email</label>
-                <input class="form-control" type="text" name="email" value="<?php echo $update_data['email'] ?>"/>    
-            </div>
-            <div class="form-group">
-                <label>Mobile</label>
-                <input class="form-control" type="text" name="mobile" value="<?php echo $update_data['mobile'] ?>"/>
-            </div>
-            <div class="form-group">
-                <label>star</label>
-                <input class="form-control" type="text" name="star" value="<?php echo $update_data['star'] ?>"/>
-            </div>
-            <div class="form-group">
-                <label>image</label>
-                    <input class="form-control" type="file" name="image" value="<?php echo $update_data['image'] ?>"/>
-            </div>
-            
-            
+                                <form name="reg" method="POST" action="<?php echo site_url('hotel/editp') ?>" enctype="multipart/form-data" role="form">
+                                    <input type="hidden" name="hotel_id" value="<?php echo $update_data['hotel_id'] ?>"/>
+                                    <div class="form-group">
+                                        <label>Hotel Name</label>
+                                        <input class="form-control" type="text" name="name" value="<?php echo $update_data['name'] ?>"/></td>  
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input class="form-control" type="text" name="email" value="<?php echo $update_data['email'] ?>"/>    
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Mobile</label>
+                                        <input class="form-control" type="text" name="mobile" value="<?php echo $update_data['mobile'] ?>"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>star</label>
+                                        <input class="form-control" type="text" name="star" value="<?php echo $update_data['star'] ?>"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>image</label>
+                                        <input class="form-control" type="file" name="image" value="<?php echo $update_data['image'] ?>"/>
+                                    </div>
+
+
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Country_name</label>                                     
@@ -130,40 +129,40 @@
                                             ?>
                                         </select>             
                                     </div>
-                                    
+
                                     <div class="form-group">
                                         <label>State Name</label>
                                         <select name="state_id" id="state_id" class="form-control">
-                                        <?php
-                                        foreach ($state_list as $state) {
-                                            if ($state->state_id == $update_data['state_id']) {
-                                                ?>
-                                               <!-- <option selected value="<?//php echo $state->state_id ?>"> <?php //echo $state->state_name ?></option>-->
-                                             <option value="<?php echo $state->state_id; ?>"selected="selected"><?php echo $state->state_name; ?></option>
-                                    <?php
-                                } 
-                            }
-                            ?>
+                                            <?php
+                                            foreach ($state_list as $state) {
+                                                if ($state->state_id == $update_data['state_id']) {
+                                                    ?>
+                                                                                               <!-- <option selected value="<?//php echo $state->state_id ?>"> <?php //echo $state->state_name       ?></option>-->
+                                                    <option value="<?php echo $state->state_id; ?>"selected="selected"><?php echo $state->state_name; ?></option>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
                                         </select></div>
-                                    
+
                                     <div class="form-group">
                                         <label>City Name</label>
-                                         <select name="city_id" id="city_id" class="form-control">
+                                        <select name="city_id" id="city_id" class="form-control">
 
-    <?php
-    foreach ($city_list as $city) {
-        if ($city->city_id == $update_data['city_id']) {
-            ?>
-                                             <option value="<?php echo $city->city_id; ?>"selected="selected"><?php echo $city->city_name; ?></option>
-                                    <?php
-                                } else {
-                                    ?>
-                                    <option value="<?php echo $city->city_id; ?>"><?php echo $city->city_name; ?></option>
-                                    <?php
-                                }
-                            }
-                            ?>
-                        </select>
+                                            <?php
+                                            foreach ($city_list as $city) {
+                                                if ($city->city_id == $update_data['city_id']) {
+                                                    ?>
+                                                    <option value="<?php echo $city->city_id; ?>"selected="selected"><?php echo $city->city_name; ?></option>
+                                                    <?php
+                                                } else {
+                                                    ?>
+                                                    <option value="<?php echo $city->city_id; ?>"><?php echo $city->city_name; ?></option>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
 
                                     <div class="form-group">
@@ -173,29 +172,29 @@
                                 <?php
                             } else {
                                 ?>
- <form name="reg" method="POST" action="<?php echo site_url('hotel/addp') ?>" enctype="multipart/form-data" role="form">
-       
-                             <div class="form-group">
-                                 <label>name</label>
-                                 <input type="text" name="name" class="form-control"/>
-                             </div>
-     
-       <div class="form-group">
-                                 <label>email</label>
-                                 <input type="text" name="email" class="form-control"/>
-                             </div>
-       <div class="form-group">
-                                 <label>mobile</label>
-                                 <input type="text" name="mobile" class="form-control"/>
-                             </div>
-       <div class="form-group">
-                                 <label>star</label>
-                                 <input type="text" name="star" class="form-control"/>
-                             </div>
-     <div class="form-group">
-         <label>image</label>
-         <input type="file" name="image" size="20" class="form-control"/>
-     </div>
+                                <form name="reg" method="POST" action="<?php echo site_url('hotel/addp') ?>" enctype="multipart/form-data" role="form">
+
+                                    <div class="form-group">
+                                        <label>name</label>
+                                        <input type="text" name="name" class="form-control"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>email</label>
+                                        <input type="text" name="email" class="form-control"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>mobile</label>
+                                        <input type="text" name="mobile" class="form-control"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>star</label>
+                                        <input type="text" name="star" class="form-control"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>image</label>
+                                        <input type="file" name="image" size="20" class="form-control"/>
+                                    </div>
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Select Country_name</label>
@@ -210,13 +209,13 @@
                                             ?>
                                         </select>
                                     </div>
-                                    
+
                                     <div class="form-group">
                                         <label>Select State Name</label>
-                                <select name="state_id" id="state_id" class="form-control">
-                                        <option></option>
-                                       
-                                    </select>
+                                        <select name="state_id" id="state_id" class="form-control">
+                                            <option></option>
+
+                                        </select>
                                     </div>
 
                                     <div class="form-group">
@@ -233,7 +232,7 @@
                             ?>
                         </div>
                         <!-- /.box-body -->
-                      
+
                     </div>
                     <!-- /.box -->
 

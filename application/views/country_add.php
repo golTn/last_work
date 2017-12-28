@@ -32,12 +32,7 @@
                         </div>
                         <div class="box-body">
                             
-                             <!--<button type="button" class="btn btn-xs btn-primary pull-right"  style="margin-right: 5px;">
-                <label class="fa fa-plus label-btn-icon"></label>
-                &nbsp;<label class="label-btn-fonts"><a href="<?php echo site_url("country/view_country") ?>"> View Records<a></label>
-            </button>-->
-
-                            
+                             
                             <div class="form-group">    
                                 <p align="right"><a href="<?php echo site_url("country/view_country") ?>" class="btn btn-primary" role="button">View Records</a></p>
                                 </div>

@@ -1,13 +1,12 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class City_model extends CI_Model {
 
-	
-	    public function insert($city_data) {
-      
+    public function insert($city_data) {
+
         $this->db->insert('city_master', $city_data);
-        
     }
 
     public function getcitylist() {
@@ -29,7 +28,7 @@ class City_model extends CI_Model {
         );
 
         $this->db->where('city_id', $city_id);
-       
+
         $this->db->update('city_master', $data);
     }
 
@@ -43,6 +42,5 @@ class City_model extends CI_Model {
         $query = $this->db->query("select * from  state_master where country_id='$country_id' ");
         return $query->result();
     }
-
 
 }
